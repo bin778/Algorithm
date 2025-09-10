@@ -2,17 +2,20 @@ import java.util.*;
 
 class Solution {
     public String solution(String s) {
-        s += " ";
-        int idx = 0;
         StringBuilder result = new StringBuilder();
+        String[] words = s.split(" ") + " ";
+        System.out.println(words[2]);
         
-        for (int i = 0; i < s.length() - 1; i++) {
-            if (s.charAt(i) == ' ') idx = 0;
-            else idx += 1;
+        for (String word : words) {
+            if (!word.equals(""))
+                for (int idx = 0; idx < word.length(); idx++) {
+                    if (word.charAt(idx) % 2 == 0) {
+                        result.append(word.charAt(idx));
+                    }
+                    else result.append(word.charAt(idx));
+                }
+            else continue;
             
-            if (idx > 0 && idx % 2 == 0) result.append(Character.toLowerCase(s.charAt(i)));
-            else if (idx > 0 && idx % 2 == 1) result.append(Character.toUpperCase(s.charAt(i)));
-            else result.append(" ");
         }
         return result.toString();
     }
