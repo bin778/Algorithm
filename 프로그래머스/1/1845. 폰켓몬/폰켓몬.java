@@ -9,6 +9,8 @@ class Solution {
             uniquePokemon.add(num);
         }
         
+        System.out.println(uniquePokemon);
+        
         int pokemonVC = uniquePokemon.size();
         
         return Math.min(pokemonVC, maxCnt);
